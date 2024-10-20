@@ -1,0 +1,118 @@
+/* Container styling for the login page */
+.container {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #5AB2FF, black);
+}
+
+/* Main login container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%; /* Use full height of the parent */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Language section at the top */
+.language-section {
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+
+}
+
+/* Logo section */
+.logo-section img {
+    max-height: 100px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+/* Input fields for login */
+.login-form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -80px;
+    
+}
+
+.input-field {
+    margin-bottom: 12px;
+
+}
+
+
+
+.input-field ::placeholder {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: small;
+    
+}
+
+.input-field input {
+    font-family: Arial, sans-serif;
+    font-size: small;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light gray border */
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1); /* Glassy effect */
+    color: white; /* white text color */
+    transition: border 0.3s; /* Smooth transition for border change */
+}
+
+/* Remove outline and change border color on focus */
+.input-field input:focus {
+    font-family: Arial, sans-serif;
+    outline: none; /* Remove default outline */
+    border-color: rgba(255, 255, 255, 0.6); /* Highlight border color */
+}
+
+/* Login button styling */
+.login-button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000; /* white text color */
+    background-color: #5AB2FF; /* Yellow button color */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.login-button:hover {
+    background-color: #fbc02d; /* Darker yellow on hover */
+}
+
+/* Copyright text */
+/* Media queries for mobile responsiveness */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    .login-button {
+        font-size: 14px;
+    }
+}

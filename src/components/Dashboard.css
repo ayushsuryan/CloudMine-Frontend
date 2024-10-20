@@ -1,0 +1,76 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background: radial-gradient(circle at top left, #5ab2ff, black);
+    position: relative;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1); /* Glassy effect */
+    backdrop-filter: blur(10px); /* Blur behind the sidebar */
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between options and settings */
+    transition: width 0.5s ease; /* Smooth transition when toggling */
+  }
+  
+  .sidebar.collapsed {
+    width: 80px;
+  }
+  
+  .hamburger {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .sidebar-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sidebar-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar-option:hover {
+    background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  
+  .sidebar-settings {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar-settings:hover {
+    background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    padding: 25px;
+    color: white;
+    transition: margin-left 0.3s ease;
+  }
+  

@@ -1,0 +1,15 @@
+/* src/styles/global.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif; /* Optional: Add a default font */
+    background-color: #6a6a6a; /* Optional: Add a background color */
+    color: #333; /* Optional: Add a default text color */
+  }
+  
+  /* Additional global styles can go here */
+  

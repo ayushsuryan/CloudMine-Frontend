@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
+import ProtectedRoute from "./ProtectedRoute";
+import Order from "./components/DashboardContent/Order";
+import Rigs from "./components/DashboardContent/Rigs";
+import Deposit from "./components/DashboardContent/Deposit";
+import Team from "./components/DashboardContent/Team";
+import Support from "./components/DashboardContent/Support";
+import Profile from "./components/DashboardContent/Profile";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+// Create a theme instance (customize as needed)
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2196F3",
+    },
+    secondary: {
+      main: "#21CBF3",
+    },
+  },
+});
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          {/* Default Route */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
 
-export default App
+          {/* Public Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          {/* Protected Routes */}
+          <Route
+            path="/dashboard/*"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          >
+            {/* Nested Routes for Dashboard */}
+            <Route path="order" element={<Order />} />
+            <Route path="rigs" element={<Rigs />} />
+            <Route path="deposit" element={<Deposit />} />
+            <Route path="team" element={<Team />} />
+            <Route path="support" element={<Support />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+
+          {/* Catch-All Route */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
+  );
+};
+
+export default App;
