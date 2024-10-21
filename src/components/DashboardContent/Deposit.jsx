@@ -12,7 +12,7 @@ const Deposit = () => {
         <div className="scrollable-container">
           <div className="glassy-card">
             <CardContent>
-              <Typography variant="h5" component="div" className="card-title">
+              <Typography variant="h6" component="div" className="card-title">
                 Balance: 5000 INR
               </Typography>
 

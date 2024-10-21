@@ -31,7 +31,7 @@ const Rigs = () => {
           <div className="glassy-card">
             <CardContent>
               <img src="../../src/assets/rig1.svg" alt="rig1" width="50%" />
-              <Typography variant="h5" component="div" className="card-title">
+              <Typography variant="h6" component="div" className="card-title">
                 RIG UNIXO BRONZE
               </Typography>
               <Typography variant="body2" className="card-content">
