@@ -1,0 +1,56 @@
+.order-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .scrollable-container {
+    margin-top: 50px;
+    max-height: 90vh; /* You can adjust this to fit your design */
+ 
+  
+  }
+  
+  .glassy-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    color: #ffffff;
+  }
+  
+  .glassy-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-content{
+    text-align: start;
+    color: #badfff;
+  }
+  
+  
+  .login-button {
+    width: 60%;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000; /* white text color */
+    background-color: #5AB2FF; /* Yellow button color */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-top: 10px;
+    float: right;
+  }
+  
+  
+  
+  
