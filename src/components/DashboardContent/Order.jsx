@@ -10,7 +10,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig1.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO BRONZE
             </Typography>
             <Typography variant="body2" className="card-content">
@@ -26,7 +26,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig2.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO SILVER
             </Typography>
             <Typography variant="body2" className="card-content">
@@ -42,7 +42,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig3.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO GOLD
             </Typography>
             <Typography variant="body2" className="card-content">
@@ -58,7 +58,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig4.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO PLATINUM
             </Typography>
             <Typography variant="body2" className="card-content">
@@ -74,7 +74,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig5.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO DIAMOND
             </Typography>
             <Typography variant="body2" className="card-content">
@@ -90,7 +90,7 @@ const Order = () => {
         <div className="glassy-card">
           <CardContent>
             <img src="../../src/assets/rig6.svg" alt="rig1" width="50%" />
-            <Typography variant="h5" component="div" className="card-title">
+            <Typography variant="h6" component="div" className="card-title">
               RIG UNIXO LEGENDARY
             </Typography>
             <Typography variant="body2" className="card-content">
