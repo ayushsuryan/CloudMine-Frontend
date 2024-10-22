@@ -19,7 +19,9 @@ const Deposit = () => {
         });
         // Round the balance to 2 decimal places
         const roundedBalance = parseFloat(response.data.balance).toFixed(2);
-        setBalance(roundedBalance); // Set the rounded balance in state
+        // const formattedBalance =
+        //   parseFloat(roundedBalance).toLocaleString("en-IN"); // Format with commas for Indian locale
+        setBalance(roundedBalance);
       } catch (error) {
         console.error("Failed to fetch balance:", error);
       } finally {
@@ -45,19 +47,27 @@ const Deposit = () => {
           <div className="glassy-card">
             <CardContent>
               {loading ? (
-                <Typography variant="h6" component="div" className="card-title">
+                <Typography component="div" className="card-title">
                   Loading...
                 </Typography>
               ) : (
-                <Typography variant="h6" component="div" className="card-title">
-                  Balance: {balance} INR
+                <Typography component="div" className="card-title">
+                  Balance: {balance}
                 </Typography>
               )}
 
-              <button className="login-button" role="button">
+              <button
+                style={{ fontSize: "small" }}
+                className="login-button"
+                role="button"
+              >
                 Deposit
               </button>
-              <button className="login-button" role="button">
+              <button
+                style={{ fontSize: "small" }}
+                className="login-button"
+                role="button"
+              >
                 Withdraw
               </button>
             </CardContent>

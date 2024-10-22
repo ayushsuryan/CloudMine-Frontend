@@ -1,29 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AdfScannerIcon from "@mui/icons-material/AdfScanner";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import GroupIcon from "@mui/icons-material/Group";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+// import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Dashboard.css"; // Import your CSS for styling
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false); // State for icon-only or expanded sidebar
+  const [sidebarHeight, setSidebarHeight] = useState(window.innerHeight); // State to hold dynamic height
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
   };
 
+  // Update sidebar height when window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="dashboard-container">
       {/* Sidebar */}
-      <div className={`sidebar ${isExpanded ? "expanded" : "collapsed"}`}>
+      <div
+        className={`sidebar ${isExpanded ? "expanded" : "collapsed"}`}
+        style={{ height: `${sidebarHeight}px` }} // Dynamic height
+      >
         {/* Hamburger Menu on top of sidebar */}
-
-        {/* Sidebar Options */}
         <div className="sidebar-options">
           <div className="hamburger" onClick={toggleSidebar}>
             <MenuIcon />

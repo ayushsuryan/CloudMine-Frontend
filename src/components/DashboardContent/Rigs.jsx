@@ -5,11 +5,14 @@ import "./Rigs.css"; // Custom CSS for glassy card styles
 
 const Rigs = () => {
   const [rigData, setRigData] = useState([]); // State to store fetched rig data
+  const [loading, setLoading] = useState(true); // State for loading indicator
   const [refresh, setRefresh] = useState(false); // State to trigger refresh
+  const [isMining, setIsMining] = useState(false); // State to track mining action status
 
   // Fetch rig data on component mount
   useEffect(() => {
     const fetchRigData = async () => {
+      setLoading(true); // Show loading spinner before data fetch
       try {
         const token = localStorage.getItem("token");
         const response = await api.get("/users/available-rigs", {
@@ -18,17 +21,20 @@ const Rigs = () => {
           },
         });
         setRigData(response.data); // Assuming the response is an array of rigs
+        setLoading(false); // Hide loading spinner after data fetch
       } catch (error) {
         console.error("Failed to fetch rig data:", error);
+        setLoading(false); // Hide loading spinner on error
       }
     };
 
     fetchRigData();
-  }, [refresh]); // Remove `rigData` from the dependency array
+  }, [refresh]); // Refresh when state changes
 
   // Function to start mining
   const handleStartMining = async (rig) => {
     console.log(rig);
+    setIsMining(true); // Disable button while request is being processed
     try {
       const token = localStorage.getItem("token");
 
@@ -47,6 +53,7 @@ const Rigs = () => {
     } catch (error) {
       console.error("Failed to start mining:", error);
     }
+    setIsMining(false); // Re-enable button after request is fulfilled
   };
 
   return (
@@ -54,7 +61,26 @@ const Rigs = () => {
       <div className="order-container">
         <h2>Start Mining</h2>
         <div className="scrollable-container">
-          {rigData.length > 0 ? (
+          {loading ? ( // Display loading spinner while data is being fetched
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <CircularProgress sx={{ color: "white" }} />
+
+              <Typography
+                style={{ marginTop: "15px" }}
+                variant="body2"
+                className="loader-text"
+              >
+                Loading rigs...
+              </Typography>
+            </div>
+          ) : rigData.length > 0 ? (
             rigData.map((rig) => (
               <div key={rig._id} className="glassy-card">
                 <CardContent>
@@ -87,7 +113,7 @@ const Rigs = () => {
                       }}
                       className="div-content"
                     >
-                      <CircularProgress className="white-loader" /> <br />
+                      <CircularProgress sx={{ color: "white" }} /> <br />
                       <span className="loader-text">Mining in progress...</span>
                     </div>
                   ) : (
@@ -95,8 +121,9 @@ const Rigs = () => {
                       className="login-button"
                       role="button"
                       onClick={() => handleStartMining(rig)} // Pass the rig to the handler
+                      disabled={isMining} // Disable button while mining action is in progress
                     >
-                      Start Mining
+                      {isMining ? "Starting Mining..." : "Start Mining"}
                     </button>
                   )}
                 </CardContent>

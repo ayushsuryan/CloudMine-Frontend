@@ -64,9 +64,13 @@ const Order = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false); // State to control snackbar visibility
   const [snackbarMessage, setSnackbarMessage] = useState(""); // State to store the snackbar message
   const [snackbarSeverity, setSnackbarSeverity] = useState("success"); // State to store the snackbar severity
+  const [loadingRigs, setLoadingRigs] = useState({}); // State to track which rig's purchase is in progress
 
   // Function to handle Buy Now button click
   const handleBuyNow = async (rig) => {
+    // Disable the button for the clicked rig
+    setLoadingRigs((prev) => ({ ...prev, [rig.id]: true }));
+
     try {
       // Get the token from local storage
       const token = localStorage.getItem("token");
@@ -95,6 +99,9 @@ const Order = () => {
       setSnackbarSeverity("error");
       setSnackbarOpen(true);
       console.error("Purchase failed:", error);
+    } finally {
+      // Re-enable the button after request is fulfilled (either success or failure)
+      setLoadingRigs((prev) => ({ ...prev, [rig.id]: false }));
     }
   };
 
@@ -127,8 +134,9 @@ const Order = () => {
                 className="login-button"
                 role="button"
                 onClick={() => handleBuyNow(rig)}
+                disabled={loadingRigs[rig.id]} // Disable button while loading
               >
-                Buy Now
+                {loadingRigs[rig.id] ? "Processing..." : "Buy Now"}
               </button>
             </CardContent>
           </div>
