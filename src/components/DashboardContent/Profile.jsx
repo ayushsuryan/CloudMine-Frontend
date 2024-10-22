@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CardContent, Typography } from "@mui/material";
 import "./Profile.css"; // Custom CSS for glassy card styles
-import api from "../../api"; // Import your Axios instance
 import LogoutIcon from "@mui/icons-material/Logout";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent"; // Import the support icon
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [users, setUser] = useState([{ name: "Ayush", balance: 10000 }]);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,45 +13,62 @@ const Profile = () => {
     navigate("/login"); // Redirect the user to the login page (adjust this path as needed)
   };
 
+  const handleSupportClick = () => {
+    window.open("https://t.me/etherial_in", "_blank"); // Replace with your Telegram channel link
+  };
+
   return (
     <div>
       <div className="order-container">
         <h2>Profile</h2>
         <div className="scrollable-container">
-          {users.length > 0 ? (
-            users.map((user) => (
-              <div
-                className="glassy-card"
-                style={{ marginBottom: "0px" }}
-                key={user._id}
+          {/* Support Card */}
+          <div
+            onClick={handleSupportClick}
+            className="glassy-card"
+            style={{ marginBottom: "0px", cursor: "pointer" }} // Add cursor pointer for better UX
+          >
+            <CardContent
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <SupportAgentIcon className="icon" />
+              <Typography
+                variant="body1"
+                component="div"
+                className="card-title"
               >
-                <CardContent
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <LogoutIcon onClick={handleLogout} className="icon" />
+                Support
+              </Typography>
+            </CardContent>
+          </div>
 
-                  <Typography
-                    variant="p"
-                    component="div"
-                    className="card-title"
-                  >
-                    {user.name}
-                  </Typography>
-                  <Typography variant="body2" component="div">
-                    Balance: {user.balance.toFixed(2)} INR
-                  </Typography>
-                </CardContent>
-              </div>
-            ))
-          ) : (
-            <Typography variant="body2" component="div">
-              No referred users found.
-            </Typography>
-          )}
+          {/* Logout Card */}
+          <div
+            onClick={handleLogout}
+            className="glassy-card"
+            style={{ marginBottom: "0px", cursor: "pointer" }} // Add cursor pointer for better UX
+          >
+            <CardContent
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <LogoutIcon className="icon" />
+              <Typography
+                variant="body1"
+                component="div"
+                className="card-title"
+              >
+                Logout
+              </Typography>
+            </CardContent>
+          </div>
         </div>
       </div>
     </div>
