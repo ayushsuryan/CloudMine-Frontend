@@ -51,6 +51,8 @@ const App = () => {
               </ProtectedRoute>
             }
           >
+            {/* Redirect from /dashboard to /dashboard/order */}
+            <Route path="" element={<Navigate to="order" replace />} />
             {/* Nested Routes for Dashboard */}
             <Route path="order" element={<Order />} />
             <Route path="rigs" element={<Rigs />} />

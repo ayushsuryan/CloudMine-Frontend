@@ -56,13 +56,13 @@ const Dashboard = () => {
             <GroupIcon className="icon" />
             {isExpanded && <span>Team</span>}
           </div>
-          <div
+          {/* <div
             className="sidebar-option"
             onClick={() => navigate("/dashboard/support")}
           >
             <SupportAgentIcon className="icon" />
             {isExpanded && <span>Support</span>}
-          </div>
+          </div> */}
         </div>
 
         {/* Settings Option at the Bottom */}

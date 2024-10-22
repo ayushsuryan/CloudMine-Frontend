@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardContent, Typography } from "@mui/material";
-import "./Deposit.css"; // Custom CSS for glassy card styles
+import "./Team.css"; // Custom CSS for glassy card styles
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Team = () => {

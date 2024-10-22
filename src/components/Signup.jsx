@@ -105,12 +105,16 @@ function Login() {
             />
           </div>
           <button className="login-button" role="button" onClick={handleSubmit}>
-            Log in
+            Register now
           </button>
           <br />
           <span className="language-section">
             Already have an account?
-            <span onClick={() => navigate("/signup")} underline="hover">
+            <span
+              style={{ marginLeft: "5px" }}
+              onClick={() => navigate("/login")}
+              underline="hover"
+            >
               Login here
             </span>
           </span>

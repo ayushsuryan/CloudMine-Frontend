@@ -1,6 +1,6 @@
 .order-container {
     width: 100%;
-    max-width: 600px;
+   
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -48,7 +48,7 @@
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     margin-top: 10px;
-    float: right;
+  
   }
   
   

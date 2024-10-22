@@ -80,7 +80,11 @@ function Login() {
           <br />
           <span className="language-section">
             Don't have an account?
-            <span onClick={() => navigate("/signup")} underline="hover">
+            <span
+              style={{ marginLeft: "5px" }}
+              onClick={() => navigate("/signup")}
+              underline="hover"
+            >
               Signup here
             </span>
           </span>

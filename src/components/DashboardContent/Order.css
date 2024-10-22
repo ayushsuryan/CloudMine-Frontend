@@ -1,12 +1,14 @@
 .order-container {
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
 }
 
 .scrollable-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
   margin-top: 50px;
   max-height: 90vh; /* You can adjust this to fit your design */
   overflow-y: auto; /* Enables vertical scrolling */
@@ -48,8 +50,15 @@
   cursor: pointer;
   transition: background-color 0.3s; /* Smooth transition for hover effect */
   margin-top: 10px;
-  float: right;
+
 }
 
 
 
+@media (max-width: 768px) {
+  .scrollable-container {
+
+    grid-template-columns: 1fr ;
+
+  }
+}
