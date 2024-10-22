@@ -1,81 +1,101 @@
 .dashboard-container {
-    display: flex;
-    height: 100%;
-    background: radial-gradient(circle at top left, #5ab2ff, black);
-    position: relative;
-  }
-  
-  .sidebar {
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.1); /* Glassy effect */
-    backdrop-filter: blur(10px); /* Blur behind the sidebar */
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Space between options and settings */
-    transition: width 0.5s ease; /* Smooth transition when toggling */
-  }
-  
-  .sidebar.collapsed {
-    width: 80px;
-  }
-  
-  .hamburger {
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .sidebar-options {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .sidebar-option {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .sidebar-option:hover {
-    background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-  }
-  
-  .icon {
-    margin-right: 10px;
-    font-size: 24px;
-  }
-  
-  .sidebar-settings {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .sidebar-settings:hover {
-    background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-  }
-  
-  .content-area {
-    flex-grow: 1;
-    padding: 0px;
-    color: white;
-    transition: margin-left 0.3s ease;
-  }
+  display: flex;
+  height: 100%;
+  background: radial-gradient(circle at top left, #5ab2ff, black);
+  position: relative;
+}
 
-  .order-container > h2{
-    text-align: start;
-    margin-bottom: 15px;
-  }
-  
+.sidebar {
+  height: 100vh;
+  width: 150px; /* Expanded width */
+  background: rgba(255, 255, 255, 0.1); /* Glassy effect */
+  backdrop-filter: blur(10px); /* Blur behind the sidebar */
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between options and settings */
+  transition: width 0.5s ease, padding 0.5s ease; /* Smooth transition when toggling */
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Collapsed width */
+  padding: 10px; /* Adjust padding for collapsed state */
+}
+
+.hamburger {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-options {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, padding 0.3s ease, opacity 0.3s ease; /* Add padding and opacity transitions */
+}
+
+.sidebar-option:hover {
+  background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 24px;
+  transition: margin-right 0.3s ease, font-size 0.3s ease; /* Animate icon size and margin */
+}
+
+.sidebar.collapsed .icon {
+  margin-right: 0; /* Remove margin when collapsed */
+  font-size: 28px; /* Adjust icon size in collapsed state */
+}
+
+.sidebar.collapsed .sidebar-option span {
+  opacity: 0; /* Hide text when collapsed */
+  width: 0; /* Collapse the text width */
+  transition: opacity 0.3s ease, width 0.3s ease; /* Smooth text hide */
+}
+
+.sidebar-option span {
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.sidebar-settings {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.sidebar-settings:hover {
+  background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+}
+
+.content-area {
+  flex-grow: 1;
+  padding: 0px;
+  color: white;
+  transition: margin-left 0.3s ease;
+  overflow-y: hidden;
+}
+
+.order-container > h2 {
+  text-align: start;
+  margin-bottom: 15px;
+}
