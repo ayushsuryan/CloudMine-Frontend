@@ -1,7 +1,7 @@
 .dashboard-container {
   display: flex;
   height: 100%;
-  background: radial-gradient(circle at top left, #5ab2ff, black);
+  background: radial-gradient(circle at top left, gray, black);
   position: relative;
 }
 
@@ -15,7 +15,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Space between options and settings */
-  transition: width 0.5s ease, padding 0.5s ease; /* Smooth transition when toggling */
+  transition:
+    width 0.5s ease,
+    padding 0.5s ease; /* Smooth transition when toggling */
 }
 
 .sidebar.collapsed {
@@ -46,7 +48,10 @@
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  transition: background 0.3s ease, padding 0.3s ease, opacity 0.3s ease; /* Add padding and opacity transitions */
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease,
+    opacity 0.3s ease; /* Add padding and opacity transitions */
 }
 
 .sidebar-option:hover {
@@ -56,7 +61,9 @@
 .icon {
   margin-right: 10px;
   font-size: 24px;
-  transition: margin-right 0.3s ease, font-size 0.3s ease; /* Animate icon size and margin */
+  transition:
+    margin-right 0.3s ease,
+    font-size 0.3s ease; /* Animate icon size and margin */
 }
 
 .sidebar.collapsed .icon {
@@ -67,11 +74,15 @@
 .sidebar.collapsed .sidebar-option span {
   opacity: 0; /* Hide text when collapsed */
   width: 0; /* Collapse the text width */
-  transition: opacity 0.3s ease, width 0.3s ease; /* Smooth text hide */
+  transition:
+    opacity 0.3s ease,
+    width 0.3s ease; /* Smooth text hide */
 }
 
 .sidebar-option span {
-  transition: opacity 0.3s ease, width 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    width 0.3s ease;
 }
 
 .sidebar-settings {
@@ -80,7 +91,9 @@
   padding: 10px;
   color: white;
   cursor: pointer;
-  transition: background 0.3s ease, padding 0.3s ease;
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease;
 }
 
 .sidebar-settings:hover {
